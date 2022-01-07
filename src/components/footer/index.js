@@ -50,7 +50,7 @@ function Footer() {
         </p>
         <div>
           <a
-            href="https://www.forem.com"
+            href="/"
             rel="noopener"
             className="inline-block mt-4"
           >
