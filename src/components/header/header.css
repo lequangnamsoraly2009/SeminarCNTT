@@ -1,0 +1,248 @@
+.ant-layout-header {
+  background-color: white;
+  border-bottom: 1px solid rgb(124, 123, 123);
+  height: 65px;
+  padding: 0;
+  width: 100%;
+}
+
+.header,
+.header-left,
+.header-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Header Left */
+
+.header-logo {
+  width: 160px;
+  height: 50px;
+}
+
+.header-logo .header-logo-button {
+  width: 160px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #000;
+  border: #000;
+  border-radius: 5px;
+}
+
+.header-logo-button:hover {
+  background-color: rgb(71, 71, 71);
+  border: rgb(71, 71, 71);
+}
+
+.ant-input-search {
+  width: 420px;
+  height: 50px;
+  margin: auto;
+  margin-left: 20px;
+}
+
+.ant-input-search input {
+  width: 420px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+.ant-input-search button {
+  height: 50px;
+  margin: 0 auto;
+  background-color: #000;
+  color: #fff;
+  font-size: 24px;
+  border: none;
+  border-left: none;
+}
+
+.ant-input-search button:hover {
+  background-color: #000;
+  color: #fff;
+  border-left: none;
+  font-size: 24px;
+}
+
+/* Header Right */
+
+.header-create-account .button-create {
+  font-weight: 700;
+  border-radius: 5px;
+  height: 50px;
+}
+
+.header-login .button-login {
+  font-size: 16px;
+}
+
+/*  */
+
+.header-menu,
+.header-search-mobile {
+  display: none;
+}
+
+/* Header For User  Logged in*/
+
+.header-user-login {
+  display: flex;
+  flex-direction: row;
+}
+
+.header-create-post,
+.header-message,
+.header-notification,
+.header-user {
+  margin: 0 15px;
+}
+
+.header-create-post-button {
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 10px;
+}
+
+.header-message a,
+.header-notification a {
+  font-size: 20px;
+  color: #000;
+}
+
+.header-message a:hover,
+.header-notification a:hover {
+  color: rgb(85, 84, 84);
+}
+
+.header-user {
+  cursor: pointer;
+  position: relative;
+}
+
+/* Header User Menu Drop Down */
+
+.header-user:hover .header-user--dropdown,
+.header-user:focus .header-user--dropdown {
+  display: block;
+}
+
+.header-user--dropdown {
+  position: absolute;
+  content: '';
+  top: 60px;
+  right: 0;
+  width: 250px;
+  height: auto;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(218, 215, 215);
+  z-index: 999999;
+  display: none;
+}
+
+.user--dropdown-name {
+  border-bottom: 1px solid rgb(206, 203, 203);
+  display: flex;
+  margin: 0 16px;
+  flex-direction: column;
+}
+
+.user--dropdown-name span {
+  font-size: 16px;
+  height: 30px;
+  font-weight: 500;
+  color: #000;
+}
+
+.user--dropdown-name small {
+  font-size: 14px;
+  height: 50px;
+  color: #000;
+}
+
+.user--dropdown-menu {
+  font-weight: 700;
+}
+
+.user--dropdown-signout {
+  border-top: 1px solid rgb(206, 203, 203);
+  margin: 0 16px;
+  font-weight: 700;
+}
+
+.user--dropdown-signout a {
+  color: #000;
+}
+
+.user--dropdown-signout a:hover {
+  color: rgb(9, 131, 245);
+}
+
+/* Tablet */
+
+@media screen and (max-width: 1249px) {
+  .header-right {
+    margin-right: 10px;
+  }
+  .header-left {
+    margin-left: 10px;
+  }
+  .ant-input-search,
+  .ant-input-search input {
+    width: 350px;
+  }
+}
+
+/* Mobile */
+
+@media screen and (max-width: 767px) {
+  .header-menu {
+    display: inline-block;
+    height: 50px;
+    border: none;
+    margin: 7px 10px 7px 0;
+    padding: 8px;
+  }
+  .header-menu .anticon-menu {
+    font-size: 24px;
+    vertical-align: auto;
+  }
+  .ant-drawer-title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .anticon-close {
+    font-size: 20px;
+  }
+  .header-logo .header-logo-button {
+    width: 110px;
+  }
+  .header-search,
+  .header-login {
+    display: none;
+  }
+  .header-right {
+    margin-right: 10px;
+  }
+  .header-search-mobile {
+    display: block;
+    height: 50px;
+    font-size: 24px;
+    margin: 0 10px;
+  }
+  .header-search-mobile a {
+    color: #000;
+  }
+  .ant-drawer-header {
+    padding: 21px 24px;
+    border-bottom: 1px solid rgb(226, 224, 224);
+  }
+  .ant-drawer-body {
+    padding: 0.5rem;
+  }
+  .header-create-post {
+    display: none;
+  }
+}

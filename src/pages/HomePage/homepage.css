@@ -1,0 +1,21 @@
+.homepage {
+  margin: 15px 0;
+  display: grid;
+  grid-template-columns: 240px auto 330px;
+  gap: 10px;
+}
+
+/* Tablet */
+@media screen and (max-width: 1249px) {
+  .homepage {
+    margin: 15px 10px;
+    grid-template-columns: 240px auto;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+  .homepage {
+    grid-template-columns: auto;
+  }
+}

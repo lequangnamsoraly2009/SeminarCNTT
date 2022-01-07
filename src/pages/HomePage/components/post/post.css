@@ -1,0 +1,225 @@
+.post {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgb(201, 198, 198);
+  border-radius: 8px;
+  margin-bottom: 5px;
+  background-color: #fff;
+}
+
+.post-body {
+  width: auto;
+}
+
+.post-body--image,
+.post-body--image-cover {
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.post-body--header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+  padding: 15px;
+}
+
+.post-body--auth-avatar {
+  margin-right: 8px;
+}
+
+.post-body--auth-name {
+  position: relative;
+  width: auto;
+}
+
+.post-body--auth-name {
+  color: rgb(61, 61, 61);
+  font-weight: 600;
+}
+
+.post-body--auth-name:hover {
+  color: #000;
+}
+
+/* Hover into username */
+.post-body--auth-name:hover .post-body--auth-hover {
+  display: block;
+}
+
+.post-body--auth-hover {
+  position: absolute;
+  content: '';
+  top: 20px;
+  left: 0;
+  background-color: #fff;
+  width: 200%;
+  height: auto;
+  z-index: 999;
+  border-radius: 5px;
+  border: 1px solid rgb(114, 114, 114);
+  box-shadow: 1px 4px 5px rgb(119, 119, 119);
+  display: none;
+}
+
+.auth-hover-header {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.auth-hover-header-username {
+  margin: 15px 0 0 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.auth-hover-follow {
+  padding: 0 10px;
+}
+
+.auth-hover-button {
+  border-radius: 10px;
+  height: 45px;
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.auth-hover-description {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.auth-hover-information {
+  padding: 10px;
+}
+
+.auth-hover-list {
+  list-style: none;
+}
+
+.auth-hover-item {
+  margin-bottom: 5px;
+}
+
+.auth-hover-item-key {
+  color: rgb(65, 64, 64);
+}
+
+.auth-hover-item-value {
+  color: #000;
+  font-weight: 400;
+}
+
+.post-body--auth-time {
+  color: rgb(136, 132, 132);
+}
+
+.post-body--auth-time:hover {
+  color: rgb(73, 71, 71);
+}
+
+/* Post */
+.post-body--indention {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 15px 15px 65px;
+}
+
+/* Title Post */
+.post-body--title {
+  margin-bottom: 5px;
+}
+
+.post-body--title-link {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+}
+
+.post-body--title-link:hover {
+  color: var(--primary-color);
+}
+
+/* tags */
+.post-body--tags {
+  display: flex;
+  flex-direction: row;
+}
+
+.post-body--tags-link {
+  margin: 0 10px 5px 0;
+  padding: 5px;
+  color: rgb(105, 105, 105);
+}
+
+.post-body--tags-link:hover {
+  color: rgb(58, 58, 58);
+}
+
+.post-body--tags-prefix {
+  color: rgb(196, 195, 195);
+}
+
+/* Reactions */
+.post-body--action,
+.post-body--action-details,
+.post-body--action-save {
+  display: flex;
+  flex-direction: row;
+}
+
+.post-body--action {
+  justify-content: space-between;
+}
+
+.post-body--action-details--heart,
+.post-body--action-details--comment {
+  display: flex;
+  margin: auto;
+}
+
+.post-body--action-details--heart .anticon-heart,
+.post-body--action-details--comment .anticon-comment {
+  font-size: 20px;
+  color: rgb(94, 93, 93);
+  vertical-align: center;
+}
+
+.post-body--action-details--heart span,
+.post-body--action-details--comment span {
+  margin-right: 10px;
+  color: rgb(94, 93, 93);
+}
+
+.post-body--action-details--heart span:hover,
+.post-body--action-details--comment span:hover {
+  color: rgb(32, 32, 32);
+}
+
+.post-body--action-save {
+  display: flex;
+  flex-direction: row;
+  margin: auto 0;
+}
+
+.post-body--action-save small {
+  width: 100%;
+  margin: auto 10px;
+  color: rgb(100, 100, 100);
+}
+
+.post-body--action-save-button {
+  border-radius: 10px;
+  width: 50%;
+  background-color: rgb(189, 189, 189);
+}
+
+.post-body--action-save-button:hover {
+  background-color: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
