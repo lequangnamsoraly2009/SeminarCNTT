@@ -74,7 +74,7 @@ function HeaderNav() {
             {isLoggedIn ? (
               <div className="header-user-login">
                 <div className="header-create-post">
-                  <a href="/create-post">
+                  <a href="/create">
                     <Button
                       type="primary"
                       className="button header-create-post-button"
