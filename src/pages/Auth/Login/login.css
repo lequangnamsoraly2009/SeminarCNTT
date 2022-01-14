@@ -1,0 +1,44 @@
+.login-container{
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+}
+
+.login-container h1{
+    margin: 60px auto;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.login-form-container {
+  width: 50%;
+  height: 320px;
+  margin: 0 auto;
+}
+
+#normal_login {
+  display: flex;
+  flex-direction: column;
+}
+
+.ant-input-affix-wrapper {
+  border-radius: 6px;
+}
+
+.ant-input-affix-wrapper > input {
+  height: 38px;
+}
+
+.login-form-button {
+  height: 44px;
+  width: 100%;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
+  background-color: #1990ff;
+}
+
+.login-form-forgot {
+  text-align: center;
+  color: #1990ff;
+}
