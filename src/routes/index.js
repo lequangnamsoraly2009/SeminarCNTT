@@ -13,7 +13,7 @@ function PublicRouter() {
       <HeaderNav />
       <Content>
         <Routes>
-          <Route path="/" exact component={HomePage} />
+          <Route path="/" exact element={<HomePage />} />
         </Routes>
       </Content>
       <FooterNav />
