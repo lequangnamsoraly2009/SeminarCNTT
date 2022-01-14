@@ -16,6 +16,9 @@ const { Search } = Input;
 function HeaderNav() {
   const [visibleMenu, setVisibleMenu] = useState(false);
 
+  // Fake Login
+  const isLoggedIn = true;
+
   // const { isLoggedIn } = useSelector((state) => state.user)
 
   const handleOnClickMenu = () => {
@@ -47,12 +50,11 @@ function HeaderNav() {
               width="300"
               onClose={handleOnClickCloseMenu}
               visible={visibleMenu}
-            >
-            </Drawer>
+            ></Drawer>
             <div className="header-logo">
               <a href="/">
                 <Button type="primary" className="header-logo-button">
-                Family tree
+                  Family tree
                 </Button>
               </a>
             </div>
@@ -69,22 +71,83 @@ function HeaderNav() {
                 <SearchOutlined />
               </a>
             </div>
-            <>
-              <div className="header-login">
-                <a href="/login">
-                  <Button type="link" className="button button-login">
-                    Log in
-                  </Button>
-                </a>
+            {isLoggedIn ? (
+              <div className="header-user-login">
+                <div className="header-create-post">
+                  <a href="/create-post">
+                    <Button
+                      type="primary"
+                      className="button header-create-post-button"
+                    >
+                      Create Post
+                    </Button>
+                  </a>
+                </div>
+                <div className="header-message">
+                  <a href="/message">
+                    <MessageOutlined />
+                  </a>
+                </div>
+                <div className="header-notification">
+                  <a href="/notification">
+                    <NotificationOutlined />
+                  </a>
+                </div>
+                <div className="header-user">
+                  <Avatar
+                    size={45}
+                    className="header-user-avatar"
+                    src="https://phunugioi.com/wp-content/uploads/2020/04/anh-gai-xinh-hot-girl-nhat-ban.jpg"
+                  />
+                  <div className="header-user--dropdown">
+                    <a href="/user">
+                      <div className="user--dropdown-name">
+                        <span>User Name</span>
+                        <small>@usernamehere</small>
+                      </div>
+                    </a>
+                    <div className="user--dropdown-menu">
+                      <Menu>
+                        <Menu.Item key="1">
+                          <a href="/dashboard">Dashboard</a>
+                        </Menu.Item>
+                        <Menu.Item key="2">
+                          <a href="/">Create Post</a>
+                        </Menu.Item>
+                        <Menu.Item key="3">
+                          <a href="/">Reading List</a>
+                        </Menu.Item>
+                        <Menu.Item key="4">
+                          <a href="/">Settings</a>
+                        </Menu.Item>
+                      </Menu>
+                    </div>
+                    <div className="user--dropdown-signout">
+                      <a href="/" onClick={onClickSignOut}>
+                        Sign Out
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="header-create-account">
-                <a href="/signup">
-                  <Button type="primary" className="button button-create">
-                    Create Account
-                  </Button>
-                </a>
-              </div>
-            </>
+            ) : (
+              <>
+                <div className="header-login">
+                  <a href="/login">
+                    <Button type="link" className="button button-login">
+                      Log in
+                    </Button>
+                  </a>
+                </div>
+                <div className="header-create-account">
+                  <a href="/signup">
+                    <Button type="primary" className="button button-create">
+                      Create Account
+                    </Button>
+                  </a>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
