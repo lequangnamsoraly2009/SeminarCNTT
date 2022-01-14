@@ -37,7 +37,7 @@ function LoginPage() {
             </Form.Item>
             <Form.Item>
               <Form.Item name="remember" valuePropName="checked" noStyle>
-                <Checkbox>Remember me</Checkbox>
+                <Checkbox>Remember me!</Checkbox>
               </Form.Item>
             </Form.Item>
 
