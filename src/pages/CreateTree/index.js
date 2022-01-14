@@ -1,69 +1,43 @@
 import React, { useState } from "react";
 import Tree from "react-d3-tree";
 import AddMember from "./components/AddMember";
-import { Button } from "antd";
+// import { Button } from "antd";
 import "./createTree.css";
 
-const orgChart = {
-  name: "CEO",
-  children: [
-    {
-      name: "Manager",
-      attributes: {
-        department: "Production",
-      },
-      children: [
-        {
-          name: "Foreman",
-          attributes: {
-            department: "Fabrication",
-          },
-          children: [
-            {
-              name: "Worker",
-            },
-          ],
-        },
-        {
-          name: "Foreman",
-          attributes: {
-            department: "Assembly",
-          },
-          children: [
-            {
-              name: "Worker",
-            },
-          ],
-        },
-      ],
-    },
-  ],
-};
-
 function CreateTree() {
-  const [tree, setTree] = useState(orgChart);
+  const [tree, setTree] = useState({
+    name: "Root",
+    children: [],
+  });
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [node, setNode] = useState(undefined);
 
   const closeModal = () => {
-    setIsModalVisible(false);
+    setNode(undefined);
   };
 
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
+//   const showModal = () => {
+//     setNode(node);
+//   };
 
   const handleSubmitMember = () => {};
 
   return (
     <div className="container-fluid">
       <div id="treeWrapper" className="tree">
-        <Tree data={tree} />
-        <Button type="primary" onClick={showModal}>
+        <Tree
+          data={tree}
+          onNodeClick={(datum) => setNode(datum)}
+          translate={{
+            x: 100,
+            y: 250,
+          }}
+        />
+        {/* <Button type="primary" onClick={showModal}>
           Open Modal
-        </Button>
+        </Button> */}
         <AddMember
-          isModalVisible={isModalVisible}
+          isModalVisible={node}
           onClose={closeModal}
           onSubmit={handleSubmitMember}
         />
