@@ -79,7 +79,7 @@ function HeaderNav() {
                       type="primary"
                       className="button header-create-post-button"
                     >
-                      Create Post
+                      Create Family Tree
                     </Button>
                   </a>
                 </div>
@@ -112,10 +112,10 @@ function HeaderNav() {
                           <a href="/dashboard">Dashboard</a>
                         </Menu.Item>
                         <Menu.Item key="2">
-                          <a href="/">Create Post</a>
+                          <a href="/">Create Tree</a>
                         </Menu.Item>
                         <Menu.Item key="3">
-                          <a href="/">Reading List</a>
+                          <a href="/">Your Tree</a>
                         </Menu.Item>
                         <Menu.Item key="4">
                           <a href="/">Settings</a>
