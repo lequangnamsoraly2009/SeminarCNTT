@@ -1,7 +1,10 @@
 import { Modal, Form, Input, Select, InputNumber } from "antd";
 import React from "react";
+import nextId from "react-id-generator";
 
 const { Option } = Select;
+
+
 
 function AddMember({ isModalVisible, onClose, onSubmit }) {
   const [form] = Form.useForm();
@@ -12,7 +15,15 @@ function AddMember({ isModalVisible, onClose, onSubmit }) {
 
   const handleSubmit = (values) => {
     onClose();
-    console.log(values);
+    const id = nextId("test-id-");
+    const dataAddMember = {
+      id,
+      name: values.name,
+      age: values.age,
+      sex: values.sex,
+      children: [],
+    };
+    onSubmit(id, dataAddMember);
   };
 
   return (
