@@ -1,28 +1,26 @@
 import React, { useState } from "react";
 import Tree from "react-d3-tree";
 import AddMember from "./components/AddMember";
-// import { Button } from "antd";
 import nextId from "react-id-generator";
 import "./createTree.css";
+import { Drawer, Button } from "antd";
 
 function CreateTree() {
   const [tree, setTree] = useState({
-    id: nextId("test-id-"),
-    name: "Cội Nguồn",
+    id: nextId("root-"),
+    name: "ROOT",
     age: "Invalid",
     sex: "Unknown",
     children: [],
   });
 
   const [node, setNode] = useState(undefined);
+  const [addCon, setAddCon] = useState(false);
 
   const closeModal = () => {
     setNode(undefined);
+    setAddCon(false)
   };
-
-  //   const showModal = () => {
-  //     setNode(node);
-  //   };
 
   const handleSubmitMember = (id, dataMemberAdd) => {
     const newTree = bfs(node.data.id, tree, {
@@ -32,8 +30,6 @@ function CreateTree() {
       sex: dataMemberAdd.sex,
       children: [] || dataMemberAdd.children,
     });
-
-    console.log(node, dataMemberAdd, newTree);
 
     if (newTree) {
       setTree(newTree);
@@ -46,27 +42,38 @@ function CreateTree() {
         <Tree
           data={tree}
           onNodeClick={(datum) => setNode(datum)}
-          orientation = {"vertical"}
+          orientation={"vertical"}
           translate={{
             x: 600,
             y: 50,
           }}
           pathFunc={"step"}
+          rootNodeClassName="node__root"
+          branchNodeClassName="node__branch"
+          leafNodeClassName="node__leaf"
         />
-      
-          {/* translate={{
-            x: 100,
-            y: 250,
-          }}
-        /> */}
-        {/* <Button type="primary" onClick={showModal}>
-          Open Modal
-        </Button> */}
-        <AddMember
+        {/* <AddMember
           isModalVisible={node}
           onClose={closeModal}
           onSubmit={handleSubmitMember}
-        />
+        /> */}
+        <Drawer
+          title="MUỐN THÊM CÁI GÌ ?"
+          width={520}
+          closable={false}
+          onClose={closeModal}
+          visible={node}
+        >
+          <Button type="primary" onClick={() => setAddCon(true)}>
+            Thêm Con
+            <AddMember
+            isModalVisible={addCon}
+            onClose={closeModal}
+            onSubmit={handleSubmitMember}
+          />
+          </Button>
+          <Button type="primary">Thêm Vợ/Chồng</Button>
+        </Drawer>
       </div>
     </div>
   );

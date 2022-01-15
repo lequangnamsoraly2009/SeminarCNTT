@@ -3,3 +3,15 @@
   height: 580px;
   border: 1px solid #000;
 }
+
+.node__root > circle {
+  fill: red;
+}
+
+.node__branch > circle {
+  fill: blue;
+}
+
+.node__leaf > circle {
+  fill: green
+}
