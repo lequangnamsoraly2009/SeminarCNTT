@@ -1,5 +1,5 @@
 import { Modal, Form, Input, Select, InputNumber, DatePicker } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import nextId from "react-id-generator";
 import moment from "moment";
 
@@ -7,16 +7,11 @@ const { Option } = Select;
 
 const dateFormat = "YYYY/MM/DD";
 
-
 function AddMember({ isModalVisible, onClose, onSubmit }) {
   const [form] = Form.useForm();
 
-  //   const showModal = () => {
-  //     setIsModalVisible(true);
-  //   };
 
   const handleSubmit = (values) => {
-    onClose();
     const id = nextId("test-id-");
     const dataAddMember = {
       id,
@@ -33,6 +28,7 @@ function AddMember({ isModalVisible, onClose, onSubmit }) {
       children: [],
     };
     onSubmit(id, dataAddMember);
+    onClose();
   };
 
   const closeModal = () => {

@@ -22,6 +22,7 @@ function HomePage() {
       title: "Gia Phả Họ Phan",
       numberhumans: "10",
       address: "Cửa 8 chi 2 Xóm Thành, Xã Nghi Long, H. Nghi Lộc, T. Nghệ an",
+      id: "TF-1",
     },
     {
       avatar:
@@ -29,6 +30,7 @@ function HomePage() {
       title: "Gia Phả Họ Phùng",
       numberhumans: "10",
       address: "Cửa 8 chi 2 Xóm Thành, Xã Nghi Long, H. Nghi Lộc, T. Nghệ an",
+      id: "TF-2",
     },
     {
       avatar:
@@ -36,6 +38,7 @@ function HomePage() {
       title: "Gia Phả Họ Trần",
       numberhumans: "10",
       address: "Cửa 8 chi 2 Xóm Thành, Xã Nghi Long, H. Nghi Lộc, T. Nghệ an",
+      id: "TF-3",
     },
     {
       avatar:
@@ -43,6 +46,7 @@ function HomePage() {
       title: "Gia Phả Họ Nguyễn",
       numberhumans: "10",
       address: "Cửa 8 chi 2 Xóm Thành, Xã Nghi Long, H. Nghi Lộc, T. Nghệ an",
+      id: "TF-4",
     },
   ];
 
@@ -83,13 +87,13 @@ function HomePage() {
             itemLayout="vertical"
             dataSource={dataListTreeFamily}
             renderItem={(item) => (
-              <a href="/abc">
+              <a href={`/watch/${item.id}`}>
                 <List.Item>
                   <List.Item.Meta
                     avatar={
                       <Avatar className="list-avatar" src={item.avatar} />
                     }
-                    title={<a href="https://ant.design">{item.title}</a>}
+                    title={<a href={`/watch/${item.id}`}>{item.title}</a>}
                     description={`Địa chỉ: ${item.address} - Số lượng thành viên: ${item.numberhumans}`}
                   />
                 </List.Item>

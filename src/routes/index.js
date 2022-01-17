@@ -20,7 +20,7 @@ function PublicRouter() {
           <Route path="/" exact element={<HomePage />} />
           <Route path="/login" exact element={<LoginPage />} />
           <Route path="/register" exact element={<RegisterPage />} />
-          <Route path="/watch" exact element={<WatchTree />} />
+          <Route path="/watch/:id" exact element={<WatchTree />} />
           <Route path="/create" exact element={<CreateTree />} />
         </Routes>
       </Content>

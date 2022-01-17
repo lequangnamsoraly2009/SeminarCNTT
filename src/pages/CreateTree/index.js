@@ -6,72 +6,6 @@ import "./createTree.css";
 import { Drawer, Button } from "antd";
 import AddWifeOrHusband from "./components/AddWifeorHusband";
 
-// const dataTest = {
-//   name: "CEO",
-//   children: [
-//     {
-//       name: "Manager",
-//       attributes: {
-//         department: "Production",
-//       },
-//       children: [
-//         {
-//           name: "Foreman",
-//           attributes: {
-//             department: "Fabrication",
-//           },
-//           children: [
-//             {
-//               name: "Workers",
-//             },
-//           ],
-//         },
-//         {
-//           name: "Foreman",
-//           attributes: {
-//             department: "Assembly",
-//           },
-//           children: [
-//             {
-//               name: "Workers",
-//             },
-//           ],
-//         },
-//       ],
-//     },
-//     {
-//       name: "Manager",
-//       attributes: {
-//         department: "Marketing",
-//       },
-//       children: [
-//         {
-//           name: "Sales Officer",
-//           attributes: {
-//             department: "A",
-//           },
-//           children: [
-//             {
-//               name: "Salespeople",
-//             },
-//           ],
-//         },
-//         {
-//           name: "Sales Officer",
-//           attributes: {
-//             department: "B",
-//           },
-//           children: [
-//             {
-//               name: "Salespeople",
-//             },
-//           ],
-//         },
-//       ],
-//     },
-//   ],
-// };
-
 function CreateTree() {
   const [tree, setTree] = useState({
     id: nextId("root-"),
@@ -79,9 +13,9 @@ function CreateTree() {
     children: [],
   });
 
-  // const [tree, setTree] = useState(dataTest);
-
+  // Open/Close Drawer
   const [node, setNode] = useState(undefined);
+  // Open/Close Modal Con
   const [addCon, setAddCon] = useState(false);
   const [addParent, setAddParent] = useState(false);
 
@@ -114,16 +48,17 @@ function CreateTree() {
     }
   };
 
-  console.log(tree);
-
   const handleSubmitParent = (id, dataMemberAdd) => {
     const newTree = bfs(node.data.id, tree, {
       id: id,
       attributes: {
         Age: dataMemberAdd.age,
         Sex: dataMemberAdd.sex,
+        Relationship: dataMemberAdd.relationship,
       },
       name: dataMemberAdd.name,
+      birthday: dataMemberAdd.birthday,
+      dataHealth: dataMemberAdd.dataHealth,
     });
 
     if (newTree) {
@@ -161,24 +96,24 @@ function CreateTree() {
         >
           <Button
             type="primary"
-            onClick={() => setAddCon(true)}
+            onClick={() => setAddCon(!addCon)}
             className="tree-button-add"
           >
             Thêm Con
-            <AddMember
-              isModalVisible={addCon}
-              onClose={closeModal}
-              onSubmit={handleSubmitMember}
-            />
           </Button>
-          <Button type="primary" onClick={() => setAddParent(true)}>
+          <AddMember
+            isModalVisible={addCon}
+            onClose={closeModal}
+            onSubmit={handleSubmitMember}
+          />
+          <Button type="primary" onClick={() => setAddParent(!addParent)}>
             Thêm Vợ Hoặc Chồng
-            <AddWifeOrHusband
-              isModalVisible={addParent}
-              onClose={closeModal}
-              onSubmit={handleSubmitParent}
-            />
           </Button>
+          <AddWifeOrHusband
+            isModalVisible={addParent}
+            onClose={closeModal}
+            onSubmit={handleSubmitParent}
+          />
         </Drawer>
       </div>
       <div className="tree-feature">
@@ -186,9 +121,15 @@ function CreateTree() {
           <h1>Một số chức năng: </h1>
         </div>
         <div className="tree-feature-content">
-          <Button className="tree-feature-content-btn" type="primary">Save Tree</Button>
-          <Button className="tree-feature-content-btn" type="primary">Edit Tree</Button>
-          <Button className="tree-feature-content-btn" type="primary">Load New Tree</Button>
+          <Button className="tree-feature-content-btn" type="primary">
+            Save Tree
+          </Button>
+          <Button className="tree-feature-content-btn" type="primary">
+            Edit Tree
+          </Button>
+          <Button className="tree-feature-content-btn" type="primary">
+            Load New Tree
+          </Button>
         </div>
       </div>
     </div>
