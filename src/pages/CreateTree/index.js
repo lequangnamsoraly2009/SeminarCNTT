@@ -3,7 +3,7 @@ import Tree from "react-d3-tree";
 import AddMember from "./components/AddMember";
 import nextId from "react-id-generator";
 import "./createTree.css";
-import { Drawer, Button } from "antd";
+import { Drawer, Button, Modal, Form, Input, Popconfirm } from "antd";
 import AddWifeOrHusband from "./components/AddWifeorHusband";
 
 function CreateTree() {
@@ -13,12 +13,16 @@ function CreateTree() {
     children: [],
   });
 
+  const [form] = Form.useForm();
+
   // Open/Close Drawer
   const [node, setNode] = useState(undefined);
   // Open/Close Modal Con
   const [addCon, setAddCon] = useState(false);
   const [addParent, setAddParent] = useState(false);
 
+  //  Open/Close Modal Save Tree
+  const [isOpenModalSave, setIsOpenModalSave] = useState(false);
   const closeModal = () => {
     setNode(undefined);
     setAddCon(false);
@@ -64,6 +68,20 @@ function CreateTree() {
     if (newTree) {
       setTree(newTree);
     }
+  };
+
+  const handleCancelModalSave = () => {
+    setIsOpenModalSave(false);
+  };
+
+  const handleSubmitSaveTree = (values) => {
+    const dataTree = { ...values, data: tree };
+    console.log(dataTree);
+    setIsOpenModalSave(false);
+  };
+
+  const confirmTask = (e) => {
+    e.preventDefault();
   };
 
   return (
@@ -121,14 +139,45 @@ function CreateTree() {
           <h1>Một số chức năng: </h1>
         </div>
         <div className="tree-feature-content">
-          <Button className="tree-feature-content-btn" type="primary">
+          <Button
+            className="tree-feature-content-btn"
+            type="primary"
+            onClick={() => setIsOpenModalSave(!isOpenModalSave)}
+          >
             Save Tree
           </Button>
+          <Modal
+            title="Save Tree Family"
+            visible={isOpenModalSave}
+            onOk={form.submit}
+            onCancel={handleCancelModalSave}
+          >
+            <Form form={form} onFinish={handleSubmitSaveTree}>
+              <Form.Item
+                label="Tên Cây Gia Phả"
+                name="nameTreeFamily"
+                rules={[
+                  {
+                    required: true,
+                    message: "Vui lòng nhập tên!",
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+            </Form>
+          </Modal>
+          <Popconfirm
+            title="Chức năng này chưa được hoàn thành - vui lòng đợi trong thời gian tới!"
+            onConfirm={confirmTask}
+            okText="Tôi Đã Hiểu"
+          >
+            <Button className="tree-feature-content-btn" type="primary">
+              Edit Tree
+            </Button>
+          </Popconfirm>
           <Button className="tree-feature-content-btn" type="primary">
-            Edit Tree
-          </Button>
-          <Button className="tree-feature-content-btn" type="primary">
-            Load New Tree
+            <a href="/">Load New Tree</a>
           </Button>
         </div>
       </div>
