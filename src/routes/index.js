@@ -6,6 +6,8 @@ import FooterNav from "../components/footer";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/Auth/Login";
 import RegisterPage from "../pages/Auth/Register";
+import CreateTree from "../pages/CreateTree";
+import WatchTree from "../pages/WatchTree";
 
 const { Content } = Layout;
 
@@ -18,6 +20,8 @@ function PublicRouter() {
           <Route path="/" exact element={<HomePage />} />
           <Route path="/login" exact element={<LoginPage />} />
           <Route path="/register" exact element={<RegisterPage />} />
+          <Route path="/watch/:id" exact element={<WatchTree />} />
+          <Route path="/create" exact element={<CreateTree />} />
         </Routes>
       </Content>
       <FooterNav />
