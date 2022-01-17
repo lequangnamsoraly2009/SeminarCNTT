@@ -6,71 +6,71 @@ import "./createTree.css";
 import { Drawer, Button } from "antd";
 import AddWifeOrHusband from "./components/AddWifeorHusband";
 
-const dataTest = {
-  name: "CEO",
-  children: [
-    {
-      name: "Manager",
-      attributes: {
-        department: "Production",
-      },
-      children: [
-        {
-          name: "Foreman",
-          attributes: {
-            department: "Fabrication",
-          },
-          children: [
-            {
-              name: "Workers",
-            },
-          ],
-        },
-        {
-          name: "Foreman",
-          attributes: {
-            department: "Assembly",
-          },
-          children: [
-            {
-              name: "Workers",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Manager",
-      attributes: {
-        department: "Marketing",
-      },
-      children: [
-        {
-          name: "Sales Officer",
-          attributes: {
-            department: "A",
-          },
-          children: [
-            {
-              name: "Salespeople",
-            },
-          ],
-        },
-        {
-          name: "Sales Officer",
-          attributes: {
-            department: "B",
-          },
-          children: [
-            {
-              name: "Salespeople",
-            },
-          ],
-        },
-      ],
-    },
-  ],
-};
+// const dataTest = {
+//   name: "CEO",
+//   children: [
+//     {
+//       name: "Manager",
+//       attributes: {
+//         department: "Production",
+//       },
+//       children: [
+//         {
+//           name: "Foreman",
+//           attributes: {
+//             department: "Fabrication",
+//           },
+//           children: [
+//             {
+//               name: "Workers",
+//             },
+//           ],
+//         },
+//         {
+//           name: "Foreman",
+//           attributes: {
+//             department: "Assembly",
+//           },
+//           children: [
+//             {
+//               name: "Workers",
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//     {
+//       name: "Manager",
+//       attributes: {
+//         department: "Marketing",
+//       },
+//       children: [
+//         {
+//           name: "Sales Officer",
+//           attributes: {
+//             department: "A",
+//           },
+//           children: [
+//             {
+//               name: "Salespeople",
+//             },
+//           ],
+//         },
+//         {
+//           name: "Sales Officer",
+//           attributes: {
+//             department: "B",
+//           },
+//           children: [
+//             {
+//               name: "Salespeople",
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//   ],
+// };
 
 function CreateTree() {
   const [tree, setTree] = useState({
@@ -91,7 +91,9 @@ function CreateTree() {
     setAddParent(false);
   };
 
-  console.log(tree)
+  // console.log(tree)
+  // const testJson = JSON.stringify(tree);
+  // console.log(testJson)
 
   const handleSubmitMember = (id, dataMemberAdd) => {
     const newTree = bfs(node.data.id, tree, {
@@ -99,8 +101,11 @@ function CreateTree() {
       attributes: {
         Age: dataMemberAdd.age,
         Sex: dataMemberAdd.sex,
+        Relationship: dataMemberAdd.relationship,
       },
       name: dataMemberAdd.name,
+      birthday: dataMemberAdd.birthday,
+      dataHealth: dataMemberAdd.dataHealth,
       children: [] || dataMemberAdd.children,
     });
 
@@ -108,6 +113,8 @@ function CreateTree() {
       setTree(newTree);
     }
   };
+
+  console.log(tree);
 
   const handleSubmitParent = (id, dataMemberAdd) => {
     const newTree = bfs(node.data.id, tree, {
@@ -146,7 +153,7 @@ function CreateTree() {
           onSubmit={handleSubmitMember}
         /> */}
         <Drawer
-          title="MUỐN THÊM CÁI GÌ ?"
+          title="CÁC TÍNH NĂNG CHÍNH?"
           width={520}
           closable={false}
           onClose={closeModal}
@@ -174,6 +181,16 @@ function CreateTree() {
           </Button>
         </Drawer>
       </div>
+      <div className="tree-feature">
+        <div className="tree-feature-header">
+          <h1>Một số chức năng: </h1>
+        </div>
+        <div className="tree-feature-content">
+          <Button className="tree-feature-content-btn" type="primary">Save Tree</Button>
+          <Button className="tree-feature-content-btn" type="primary">Edit Tree</Button>
+          <Button className="tree-feature-content-btn" type="primary">Load New Tree</Button>
+        </div>
+      </div>
     </div>
   );
 }
@@ -195,9 +212,12 @@ const bfs = (id, tree, node) => {
       currentNode.children.push({
         id: node.id,
         name: node.name,
+        birthday: node.birthday,
+        dataHealth: node.dataHealth,
         attributes: {
           Age: node.attributes.Age,
           Sex: node.attributes.Sex,
+          Relationship: node.attributes.Relationship,
         },
         children: node.children,
       });
@@ -215,9 +235,6 @@ const bfs = (id, tree, node) => {
     //   });
     // }
   }
-
-  
 };
-
 
 export default CreateTree;

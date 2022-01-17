@@ -1,3 +1,16 @@
+.tree-header,
+.tree-guide {
+  display: flex;
+  flex-direction: column;
+}
+
+.tree-header p,
+.tree-guide h1 {
+  margin: 20px auto;
+  font-size: 20px;
+  font-weight: 800;
+}
+
 .tree {
   width: 100%;
   height: 580px;
@@ -13,9 +26,35 @@
 }
 
 .node__leaf > circle {
-  fill: green
+  fill: green;
 }
 
-.tree-button-add{
+.tree-button-add {
   margin: 0 70px;
+}
+
+.tree-feature {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tree-feature-header {
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+.tree-feature-header h1 {
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.tree-feature-content {
+  display: flex;
+  justify-content: flex-center;
+}
+
+.tree-feature-content-btn {
+  margin: 0 30px;
+  height: 40px;
 }
