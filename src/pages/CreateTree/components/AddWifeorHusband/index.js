@@ -1,11 +1,12 @@
 import { Modal, Form, Input, Select, InputNumber } from "antd";
-import React  from "react";
+import React from "react";
 import nextId from "react-id-generator";
 
 const { Option } = Select;
 
-function AddMember({ isModalVisible, onClose, onSubmit }) {
 
+
+function AddWifeOrHusband({ isModalVisible, onClose, onSubmit }) {
   const [form] = Form.useForm();
 
   //   const showModal = () => {
@@ -20,60 +21,56 @@ function AddMember({ isModalVisible, onClose, onSubmit }) {
       name: values.name,
       age: values.age,
       sex: values.sex,
-      children: [],
+    //   children: null,
     };
     onSubmit(id, dataAddMember);
   };
 
-  const closeModal = () => {
-    onClose();
-  };
-
   return (
     <Modal
-      title="Add Member"
-      visible={isModalVisible }
+      title="Add Wife or Husband"
+      visible={isModalVisible}
       onOk={form.submit}
-      onCancel={closeModal}
+      onCancel={onClose}
       okText="Add"
       cancelText="Cancel"
     >
       <Form form={form} onFinish={handleSubmit}>
         <Form.Item
-          label="Family Member Name"
+          label="Your Wife/Husband Name"
           name="name"
           rules={[
             {
               required: true,
-              message: "Please input Family Member Name!",
+              message: "Please input Your Wife/Husband Name!",
             },
           ]}
         >
           <Input />
         </Form.Item>
         <Form.Item
-          label="Family Member Age"
+          label="Your Wife/Husband Age"
           name="age"
           rules={[
             {
               required: true,
-              message: "Please input Family Member age!",
+              message: "Please input Your Wife/Husband Age!",
             },
           ]}
         >
           <InputNumber min={0} max={100} />
         </Form.Item>
         <Form.Item
-          label="Family Member Sex"
+          label="Your Wife/Husband Sex"
           name="sex"
           rules={[
             {
               required: true,
-              message: "Please input Family Member sex!",
+              message: "Please input Your Wife/Husband Sex!",
             },
           ]}
         >
-          <Select placeholder="Select a gender member" allowClear>
+          <Select placeholder="Select a gender" allowClear>
             <Option value="Male">Male</Option>
             <Option value="Female">Female</Option>
           </Select>
@@ -83,4 +80,4 @@ function AddMember({ isModalVisible, onClose, onSubmit }) {
   );
 }
 
-export default AddMember;
+export default AddWifeOrHusband;

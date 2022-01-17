@@ -4,31 +4,119 @@ import AddMember from "./components/AddMember";
 import nextId from "react-id-generator";
 import "./createTree.css";
 import { Drawer, Button } from "antd";
+import AddWifeOrHusband from "./components/AddWifeorHusband";
+
+const dataTest = {
+  name: "CEO",
+  children: [
+    {
+      name: "Manager",
+      attributes: {
+        department: "Production",
+      },
+      children: [
+        {
+          name: "Foreman",
+          attributes: {
+            department: "Fabrication",
+          },
+          children: [
+            {
+              name: "Workers",
+            },
+          ],
+        },
+        {
+          name: "Foreman",
+          attributes: {
+            department: "Assembly",
+          },
+          children: [
+            {
+              name: "Workers",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Manager",
+      attributes: {
+        department: "Marketing",
+      },
+      children: [
+        {
+          name: "Sales Officer",
+          attributes: {
+            department: "A",
+          },
+          children: [
+            {
+              name: "Salespeople",
+            },
+          ],
+        },
+        {
+          name: "Sales Officer",
+          attributes: {
+            department: "B",
+          },
+          children: [
+            {
+              name: "Salespeople",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
 
 function CreateTree() {
   const [tree, setTree] = useState({
     id: nextId("root-"),
     name: "ROOT",
-    age: "Invalid",
-    sex: "Unknown",
     children: [],
   });
 
+  // const [tree, setTree] = useState(dataTest);
+
   const [node, setNode] = useState(undefined);
   const [addCon, setAddCon] = useState(false);
+  const [addParent, setAddParent] = useState(false);
 
   const closeModal = () => {
     setNode(undefined);
-    setAddCon(false)
+    setAddCon(false);
+    setAddParent(false);
   };
+
+  console.log(tree)
 
   const handleSubmitMember = (id, dataMemberAdd) => {
     const newTree = bfs(node.data.id, tree, {
       id: id,
+      attributes: {
+        Age: dataMemberAdd.age,
+        Sex: dataMemberAdd.sex,
+      },
       name: dataMemberAdd.name,
-      age: dataMemberAdd.age,
-      sex: dataMemberAdd.sex,
       children: [] || dataMemberAdd.children,
+    });
+
+    if (newTree) {
+      setTree(newTree);
+    }
+  };
+
+  const handleSubmitParent = (id, dataMemberAdd) => {
+    const newTree = bfs(node.data.id, tree, {
+      id: id,
+      attributes: {
+        Age: dataMemberAdd.age,
+        Sex: dataMemberAdd.sex,
+      },
+      name: dataMemberAdd.name,
     });
 
     if (newTree) {
@@ -64,15 +152,26 @@ function CreateTree() {
           onClose={closeModal}
           visible={node}
         >
-          <Button type="primary" onClick={() => setAddCon(true)}>
+          <Button
+            type="primary"
+            onClick={() => setAddCon(true)}
+            className="tree-button-add"
+          >
             Thêm Con
             <AddMember
-            isModalVisible={addCon}
-            onClose={closeModal}
-            onSubmit={handleSubmitMember}
-          />
+              isModalVisible={addCon}
+              onClose={closeModal}
+              onSubmit={handleSubmitMember}
+            />
           </Button>
-          <Button type="primary">Thêm Vợ/Chồng</Button>
+          <Button type="primary" onClick={() => setAddParent(true)}>
+            Thêm Vợ Hoặc Chồng
+            <AddWifeOrHusband
+              isModalVisible={addParent}
+              onClose={closeModal}
+              onSubmit={handleSubmitParent}
+            />
+          </Button>
         </Drawer>
       </div>
     </div>
@@ -82,7 +181,7 @@ function CreateTree() {
 const bfs = (id, tree, node) => {
   const queue = [];
   queue.unshift(tree);
-  while (queue.length > 0) {
+  while (queue?.length > 0) {
     const currentNode = queue.pop();
     // if (currentNode.dataAddMember === dataAddMember) {
     //   return currentNode;
@@ -92,19 +191,20 @@ const bfs = (id, tree, node) => {
     //     queue.unshift(child);
     //   });
     // }
-
     if (currentNode.id === id) {
       currentNode.children.push({
         id: node.id,
         name: node.name,
-        age: node.age,
-        sex: node.sex,
+        attributes: {
+          Age: node.attributes.Age,
+          Sex: node.attributes.Sex,
+        },
         children: node.children,
       });
       return { ...tree };
     }
 
-    const length = currentNode.children.length;
+    const length = currentNode.children?.length;
 
     for (let i = 0; i < length; i++) {
       queue.unshift(currentNode.children[i]);
@@ -115,6 +215,9 @@ const bfs = (id, tree, node) => {
     //   });
     // }
   }
+
+  
 };
+
 
 export default CreateTree;
