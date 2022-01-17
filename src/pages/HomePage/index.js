@@ -7,9 +7,7 @@ import { useSelector } from "react-redux";
 const { Panel } = Collapse;
 
 function HomePage() {
-
-  const treeFamily  = useSelector((state) => state.treeFamily);
-
+  const treeFamily = useSelector((state) => state.treeFamily);
 
   const settingSlide = {
     infinite: true,
@@ -25,32 +23,33 @@ function HomePage() {
       avatar:
         "https://scr.vn/wp-content/uploads/2020/08/Anh-chan-dung-gia-dinh-4-nguoi.jpg",
       title: "Gia Phả Họ Phan",
-      numberhumans: "10",
+      numberhumans: "9",
       address: "Cửa 8 chi 2 Xóm Thành, Xã Nghi Long, H. Nghi Lộc, T. Nghệ an",
       id: "TF-1",
     },
     {
       avatar:
-        "https://scr.vn/wp-content/uploads/2020/08/Anh-chan-dung-gia-dinh-4-nguoi.jpg",
+        "https://digi4u.net/media/news/0211_meo-giup-ban-chup-anh-chan-dung-gia-dinh-dep-lung-linh-2.jpg",
       title: "Gia Phả Họ Phùng",
-      numberhumans: "10",
-      address: "Cửa 8 chi 2 Xóm Thành, Xã Nghi Long, H. Nghi Lộc, T. Nghệ an",
+      numberhumans: "7",
+      address: "1069 Tỉnh Lộ 43, Khu Phố 2, Dĩ An, Bình Dương",
       id: "TF-2",
     },
     {
       avatar:
-        "https://scr.vn/wp-content/uploads/2020/08/Anh-chan-dung-gia-dinh-4-nguoi.jpg",
+        "https://hongkongstudio.com.vn/wp-content/uploads/chup-anh-gia-dinh-theo-moc-thoi-gian.jpg",
       title: "Gia Phả Họ Trần",
-      numberhumans: "10",
-      address: "Cửa 8 chi 2 Xóm Thành, Xã Nghi Long, H. Nghi Lộc, T. Nghệ an",
+      numberhumans: "17",
+      address:
+        "182 đường số 8 Phường Linh Xuân, Thành Phố Thủ Đức, Hồ Chí Minh",
       id: "TF-3",
     },
     {
       avatar:
-        "https://scr.vn/wp-content/uploads/2020/08/Anh-chan-dung-gia-dinh-4-nguoi.jpg",
+        "https://boldstudio.vn/wp-content/uploads/2019/12/chup-anh-chan-dung-gia-dinh-02.jpg",
       title: "Gia Phả Họ Nguyễn",
-      numberhumans: "10",
-      address: "Cửa 8 chi 2 Xóm Thành, Xã Nghi Long, H. Nghi Lộc, T. Nghệ an",
+      numberhumans: "36",
+      address: "65 Trần Thiện Chánh, Phường 14, Quận 10, Thành Phố Hồ Chí Minh",
       id: "TF-4",
     },
   ];
