@@ -5,6 +5,8 @@ import nextId from "react-id-generator";
 import "./createTree.css";
 import { Drawer, Button, Modal, Form, Input, Popconfirm } from "antd";
 import AddWifeOrHusband from "./components/AddWifeorHusband";
+import { useDispatch } from "react-redux";
+import { addTree } from "../../app/treeFamilySlice";
 
 function CreateTree() {
   const [tree, setTree] = useState({
@@ -12,6 +14,9 @@ function CreateTree() {
     name: "ROOT",
     children: [],
   });
+
+  const dispatch = useDispatch();
+
 
   const [form] = Form.useForm();
 
@@ -75,8 +80,9 @@ function CreateTree() {
   };
 
   const handleSubmitSaveTree = (values) => {
-    const dataTree = { ...values, data: tree };
-    console.log(dataTree);
+    const dataTree = {...values, data: tree };
+    // console.log(dataTree);
+    dispatch(addTree(dataTree));
     setIsOpenModalSave(false);
   };
 

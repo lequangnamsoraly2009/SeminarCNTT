@@ -1,85 +1,29 @@
 import React from "react";
 import Tree from "react-d3-tree";
 import { Collapse } from "antd";
+import { useLocation } from "react-router-dom";
 import "../CreateTree/createTree.css";
+import { useSelector } from "react-redux";
 
 const { Panel } = Collapse;
 
-const dataTest = {
-  name: "CEO",
-  children: [
-    {
-      name: "Manager",
-      attributes: {
-        department: "Production",
-      },
-      children: [
-        {
-          name: "Foreman",
-          attributes: {
-            department: "Fabrication",
-          },
-          children: [
-            {
-              name: "Workers",
-            },
-          ],
-        },
-        {
-          name: "Foreman",
-          attributes: {
-            department: "Assembly",
-          },
-          children: [
-            {
-              name: "Workers",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Manager",
-      attributes: {
-        department: "Marketing",
-      },
-      children: [
-        {
-          name: "Sales Officer",
-          attributes: {
-            department: "A",
-          },
-          children: [
-            {
-              name: "Salespeople",
-            },
-          ],
-        },
-        {
-          name: "Sales Officer",
-          attributes: {
-            department: "B",
-          },
-          children: [
-            {
-              name: "Salespeople",
-            },
-          ],
-        },
-      ],
-    },
-  ],
-};
-
 function WatchTree() {
+  const location = useLocation();
+
+  const treeFamily = useSelector((state) => state.treeFamily);
+
+  const dataTreeHere = treeFamily.find(
+    (element) => element.id === location.pathname.split("/")[2]
+  );
+
   return (
     <div className="container-fluid">
       <div className="tree-header">
-        <p>Gia Phả Nhà: Họ Phùng </p>
+        <p>{dataTreeHere.nameTreeFamily}</p>
       </div>
       <div id="treeWrapper" className="tree">
         <Tree
-          data={dataTest}
+          data={dataTreeHere.data}
           orientation={"vertical"}
           translate={{
             x: 600,
@@ -107,7 +51,7 @@ function WatchTree() {
           </Panel>
           <Panel header="Cách ẩn/hiện Node Con" key="3">
             <p>
-                Click vào node màu xanh dương(node cha) để ẩn hoặc hiện node con
+              Click vào node màu xanh dương(node cha) để ẩn hoặc hiện node con
             </p>
           </Panel>
         </Collapse>

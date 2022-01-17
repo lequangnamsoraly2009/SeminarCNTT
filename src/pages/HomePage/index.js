@@ -2,10 +2,15 @@ import React from "react";
 import "./homepage.css";
 import Slider from "react-slick";
 import { List, Avatar, Collapse, Button } from "antd";
+import { useSelector } from "react-redux";
 
 const { Panel } = Collapse;
 
 function HomePage() {
+
+  const treeFamily  = useSelector((state) => state.treeFamily);
+
+
   const settingSlide = {
     infinite: true,
     slidesToShow: 1,
