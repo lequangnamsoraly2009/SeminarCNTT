@@ -8,6 +8,7 @@ const { Panel } = Collapse;
 
 function HomePage() {
   const treeFamily = useSelector((state) => state.treeFamily);
+  const {isLoggedIn} = useSelector((state) => state.user);
 
   const settingSlide = {
     infinite: true,
@@ -129,21 +130,40 @@ function HomePage() {
           </Collapse>
         </div>
         <div className="homepage-create">
-          <div className="homepage-create-flex">
-            <div className="homepage-create-header">
-              <p>Sign up, and discover your location</p>
+          {!isLoggedIn ? (
+            <div className="homepage-create-flex">
+              <div className="homepage-create-header">
+                <p>Sign up, and discover your location</p>
+              </div>
+              <a href="/register" className="homepage-create-button">
+                <Button
+                  type="primary"
+                  className="button homepage-create-button"
+                >
+                  Create A Free Account
+                </Button>
+              </a>
+              <div className="homepage-create-login">
+                <p>
+                  Do you have any account ? <a href="/login">Login</a>{" "}
+                </p>
+              </div>
             </div>
-            <a href="/register" className="homepage-create-button">
-              <Button type="primary" className="button homepage-create-button">
-                Create A Free Account
-              </Button>
-            </a>
-            <div className="homepage-create-login">
-              <p>
-                Do you have any account ? <a href="/login">Login</a>{" "}
-              </p>
+          ) : (
+            <div className="homepage-create-flex">
+              <div className="homepage-create-header">
+                <p>Welcome to my website ! Have a good day</p>
+              </div>
+              <a href="/create" className="homepage-create-button">
+                <Button
+                  type="primary"
+                  className="button homepage-create-button"
+                >
+                  Create A New Tree
+                </Button>
+              </a>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

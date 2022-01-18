@@ -7,19 +7,17 @@ import {
   NotificationOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-// import { useSelector } from 'react-redux'
-// import SideLeftBar from '../sideLeft'
+import { useDispatch, useSelector } from "react-redux";
+import { fakeLogout } from "../../app/userSlice";
 
 const { Header } = Layout;
 const { Search } = Input;
 
 function HeaderNav() {
   const [visibleMenu, setVisibleMenu] = useState(false);
+  const { isLoggedIn } = useSelector((state) => state.user);
 
-  // Fake Login
-  const isLoggedIn = true;
-
-  // const { isLoggedIn } = useSelector((state) => state.user)
+  const dispatch = useDispatch();
 
   const handleOnClickMenu = () => {
     setVisibleMenu(true);
@@ -33,7 +31,9 @@ function HeaderNav() {
   const onSearch = () => {};
 
   // Sign Out
-  const onClickSignOut = () => {};
+  const onClickSignOut = () => {
+    dispatch(fakeLogout());
+  };
 
   return (
     <Header>

@@ -1,13 +1,7 @@
-import React from "react";
-import { Form, Input, Button, Checkbox } from "antd";
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import "./login.css";
-import { login } from "../../../app/userSlice";
+import { createSlice } from "@reduxjs/toolkit";
 
-function LoginPage() {
-  const fakeUserLogin = {
+const initialState = {
+  user: {
     username: "user1",
     password: "123456",
     remember: true,
@@ -161,73 +155,27 @@ function LoginPage() {
         },
       },
     ],
-  };
+  },
+  isLoggedIn: true,
+};
 
-  const dispatch = useDispatch();
+const userSlice = createSlice({
+  name: "user",
+  initialState,
+  reducers: {
+    login: (state, action) => {
+      state.user.push(action.payload);
+      state.isLoggedIn = true;
+    },
+    fakeLogout: (state, action) => {
+      state.user = [];
+      state.isLoggedIn = false;
+    },
+  },
+});
 
-  const history = useNavigate();
+const { actions, reducer } = userSlice;
 
-  const onSubmitLogin = (values) => {
-    if (
-      values.username === fakeUserLogin.username &&
-      values.password === fakeUserLogin.password
-    ) {
-      dispatch(login(fakeUserLogin));
-      history("/");
-    }
-  };
+export const { login, fakeLogout } = actions;
 
-  return (
-    <div className="container-fluid">
-      <div className="login-container">
-        <h1>Welcome Back - Login </h1>
-        <div className="login-form-container">
-          <Form
-            name="normal_login"
-            className="login-form"
-            onFinish={onSubmitLogin}
-            initialValues={{ remember: true }}
-          >
-            <Form.Item
-              name="username"
-              rules={[{ required: true, message: "Please input your Email!" }]}
-            >
-              <Input
-                prefix={<UserOutlined className="site-form-item-icon" />}
-                placeholder="Email"
-              />
-            </Form.Item>
-            <Form.Item
-              name="password"
-              rules={[
-                { required: true, message: "Please input your Password!" },
-              ]}
-            >
-              <Input
-                prefix={<LockOutlined className="site-form-item-icon" />}
-                type="password"
-                placeholder="Password"
-              />
-            </Form.Item>
-            <Form.Item>
-              <Form.Item name="remember" valuePropName="checked" noStyle>
-                <Checkbox>Remember me!</Checkbox>
-              </Form.Item>
-            </Form.Item>
-
-            <Form.Item>
-              <Button htmlType="submit" className="login-form-button">
-                Login
-              </Button>
-            </Form.Item>
-            <a className="login-form-forgot" href="/">
-              I forgot my password
-            </a>
-          </Form>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default LoginPage;
+export default reducer;
