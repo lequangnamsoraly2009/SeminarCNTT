@@ -15,7 +15,7 @@ const { Search } = Input;
 
 function HeaderNav() {
   const [visibleMenu, setVisibleMenu] = useState(false);
-  const { isLoggedIn } = useSelector((state) => state.user);
+  const { isLoggedIn, user } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
 
@@ -97,13 +97,13 @@ function HeaderNav() {
                   <Avatar
                     size={45}
                     className="header-user-avatar"
-                    src="https://phunugioi.com/wp-content/uploads/2020/04/anh-gai-xinh-hot-girl-nhat-ban.jpg"
+                    src={user[0].avatar}
                   />
                   <div className="header-user--dropdown">
                     <a href="/user">
                       <div className="user--dropdown-name">
-                        <span>User Name</span>
-                        <small>@usernamehere</small>
+                        <span>{user[0].displayName}</span>
+                        <small>@{user[0].username}</small>
                       </div>
                     </a>
                     <div className="user--dropdown-menu">
@@ -112,10 +112,10 @@ function HeaderNav() {
                           <a href="/dashboard">Dashboard</a>
                         </Menu.Item>
                         <Menu.Item key="2">
-                          <a href="/">Create Tree</a>
+                          <a href="/create">Create Tree</a>
                         </Menu.Item>
                         <Menu.Item key="3">
-                          <a href="/">Your Tree</a>
+                          <a href="/dashboard">Your Tree</a>
                         </Menu.Item>
                         <Menu.Item key="4">
                           <a href="/">Settings</a>
