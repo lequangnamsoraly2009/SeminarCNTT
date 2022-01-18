@@ -1103,6 +1103,173 @@ const dataTestTreeFamily = [
       ],
     },
   },
+  {
+    nameTreeFamily: "Gia Phả Họ Lý",
+    id: "TF-5",
+    avatar: "https://toplist.vn/images/800px/passion-studio-734688.jpg",
+    address: "172/12/1 Điện Biên Phủ, Quận 1, Hồ Chí Minh",
+    numberhumans: "10",
+    data: {
+      id: "root-1",
+      name: "ROOT",
+      children: [
+        {
+          id: "test-id-4",
+          name: "Lý Quốc Anh",
+          birthday: "1970-02-17T16:00:00.000Z",
+          dataHealth: {
+            blood: "A",
+            diseaseTreatment: "Viêm Gan B",
+            diseaseCured: "Thấp Khớp, Nhồi Máu Cơ Tim",
+          },
+          attributes: {
+            Age: 52,
+            Sex: "Male",
+            Relationship: "Chủ Hộ",
+          },
+          children: [
+            {
+              id: "test-id-13",
+              name: "Trần Thị Thơm",
+              birthday: "1972-02-13T16:00:00.000Z",
+              dataHealth: {
+                blood: "B",
+              },
+              attributes: {
+                Age: 50,
+                Sex: "Female",
+                Relationship: "Vợ",
+              },
+            },
+            {
+              id: "test-id-17",
+              name: "Lý Quốc Hào",
+              birthday: "1995-12-10T17:00:00.000Z",
+              dataHealth: {
+                blood: "A",
+                diseaseTreatment: "Viêm Gan B",
+                diseaseCured: "Không",
+              },
+              attributes: {
+                Age: 27,
+                Sex: "Male",
+                Relationship: "Con",
+              },
+              children: [
+                {
+                  id: "test-id-44",
+                  name: "Nguyễn Thị Hải",
+                  birthday: "1996-05-12T17:00:00.000Z",
+                  dataHealth: {
+                    blood: "AB",
+                  },
+                  attributes: {
+                    Age: 26,
+                    Sex: "Female",
+                    Relationship: "Vợ",
+                  },
+                },
+                {
+                  id: "test-id-48",
+                  name: "Lý Thị Tuyết",
+                  birthday: "2019-04-16T17:00:00.000Z",
+                  dataHealth: {
+                    blood: "A",
+                    diseaseTreatment: "Không",
+                    diseaseCured: "Không",
+                  },
+                  attributes: {
+                    Age: 3,
+                    Sex: "Female",
+                    Relationship: "Con",
+                  },
+                  children: [],
+                },
+              ],
+            },
+            {
+              id: "test-id-23",
+              name: "Lý Quốc Minh",
+              birthday: "1997-12-16T17:00:00.000Z",
+              dataHealth: {
+                blood: "A",
+                diseaseTreatment: "Không",
+                diseaseCured: "Gãy Tay, Đau Nữa Đầu, Méo Miệng",
+              },
+              attributes: {
+                Age: 25,
+                Sex: "Male",
+                Relationship: "Con",
+              },
+              children: [],
+            },
+            {
+              id: "test-id-29",
+              name: "Lý Thị Ly",
+              birthday: "1999-12-21T17:00:00.000Z",
+              dataHealth: {
+                blood: "A",
+                diseaseTreatment: "Cận Thị",
+                diseaseCured: "Đau Nữa Đầu, Viêm Gan B",
+              },
+              attributes: {
+                Age: 23,
+                Sex: "Female",
+                Relationship: "Con",
+              },
+              children: [
+                {
+                  id: "test-id-57",
+                  name: "Trịnh Văn Minh",
+                  birthday: "1997-05-13T17:00:00.000Z",
+                  dataHealth: {
+                    blood: "B",
+                  },
+                  attributes: {
+                    Age: 25,
+                    Sex: "Male",
+                    Relationship: "Chồng",
+                  },
+                },
+                {
+                  id: "test-id-61",
+                  name: "Trịnh Văn Quyết",
+                  birthday: "2020-04-23T17:00:00.000Z",
+                  dataHealth: {
+                    blood: "B",
+                    diseaseTreatment: "Viêm Gan B, Máu Khó Đông, Bệnh Tim",
+                    diseaseCured: "Lé",
+                  },
+                  attributes: {
+                    Age: 2,
+                    Sex: "Male",
+                    Relationship: "Con",
+                  },
+                  children: [],
+                },
+              ],
+            },
+            {
+              id: "test-id-35",
+              name: "Lý Thị Lan",
+              birthday: "2001-02-04T17:00:00.000Z",
+              dataHealth: {
+                blood: "A",
+                diseaseTreatment: "Không",
+                diseaseCured: "Không",
+              },
+              attributes: {
+                Age: 21,
+                Sex: "Female",
+                Relationship: "Con",
+              },
+              children: [],
+            },
+          ],
+        },
+      ],
+    },
+  },
 ];
 
 const treeFamilySlice = createSlice({
