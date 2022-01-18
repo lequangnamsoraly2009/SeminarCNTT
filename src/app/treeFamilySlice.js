@@ -1270,6 +1270,222 @@ const dataTestTreeFamily = [
       ],
     },
   },
+  {
+    nameTreeFamily: "Gia Phả Họ Phạm",
+    id: "TF-6",
+    avatar: "https://chuyennghiep.vn/upload/news/3-2449.jpg",
+    address: "29 Đường số 3, Linh Chiểu, Quận Thủ Đức, Hồ Chí Minh",
+    numberhumans: "13",
+    data: {
+      id: "root-1",
+      name: "ROOT",
+      children: [
+        {
+          id: "test-id-7",
+          name: "Phạm Trung",
+          birthday: "1962-05-24T16:00:00.000Z",
+          dataHealth: {
+            blood: "A",
+            diseaseTreatment:
+              "Viêm Gan B, Thấp Khớp, Nhồi Máu Cơ Tim, Cao Huyết Áp",
+            diseaseCured: "Không",
+          },
+          attributes: {
+            Age: 60,
+            Sex: "Male",
+            Relationship: "Chủ Hộ",
+          },
+          children: [
+            {
+              id: "test-id-16",
+              name: "Lê Thị Minh Khai",
+              birthday: "1966-05-07T16:00:00.000Z",
+              dataHealth: {
+                blood: "AB",
+              },
+              attributes: {
+                Age: 56,
+                Sex: "Female",
+                Relationship: "Vợ",
+              },
+            },
+            {
+              id: "test-id-20",
+              name: "Phạm Kiên",
+              birthday: "1989-05-23T17:00:00.000Z",
+              dataHealth: {
+                blood: "A",
+                diseaseTreatment: "Viêm Gan B",
+                diseaseCured: "Lé, Đau Toàn Đầu, Sán",
+              },
+              attributes: {
+                Age: 33,
+                Sex: "Male",
+                Relationship: "Con",
+              },
+              children: [
+                {
+                  id: "test-id-39",
+                  name: "Lý Thị Hạnh",
+                  birthday: "1989-09-28T17:00:00.000Z",
+                  dataHealth: {
+                    blood: "bloodrare",
+                  },
+                  attributes: {
+                    Age: 33,
+                    Sex: "Female",
+                    Relationship: "Vợ",
+                  },
+                },
+                {
+                  id: "test-id-43",
+                  name: "Phạm Thị Như",
+                  birthday: "2009-05-19T17:00:00.000Z",
+                  dataHealth: {
+                    blood: "A",
+                    diseaseTreatment: "Không",
+                    diseaseCured: "Không",
+                  },
+                  attributes: {
+                    Age: 13,
+                    Sex: "Female",
+                    Relationship: "Con",
+                  },
+                  children: [],
+                },
+                {
+                  id: "test-id-49",
+                  name: "Phạm Dũng",
+                  birthday: "2012-05-07T17:00:00.000Z",
+                  dataHealth: {
+                    blood: "A",
+                    diseaseTreatment: "Không",
+                    diseaseCured: "Không",
+                  },
+                  attributes: {
+                    Age: 10,
+                    Sex: "Male",
+                    Relationship: "Con",
+                  },
+                  children: [],
+                },
+                {
+                  id: "test-id-55",
+                  name: "Phạm Hùng",
+                  birthday: "2013-05-14T17:00:00.000Z",
+                  dataHealth: {
+                    blood: "A",
+                    diseaseTreatment: "Không",
+                    diseaseCured: "Không",
+                  },
+                  attributes: {
+                    Age: 9,
+                    Sex: "Male",
+                    Relationship: "Con",
+                  },
+                  children: [],
+                },
+                {
+                  id: "test-id-61",
+                  name: "Phạm Anh",
+                  birthday: "2019-05-14T17:00:00.000Z",
+                  dataHealth: {
+                    blood: "A",
+                    diseaseTreatment: "Viêm Gan B, Đục Thủy Tinh Thể",
+                    diseaseCured: "Không",
+                  },
+                  attributes: {
+                    Age: 3,
+                    Sex: "Male",
+                    Relationship: "Con",
+                  },
+                  children: [],
+                },
+              ],
+            },
+            {
+              id: "test-id-26",
+              name: "Phạm Thị Hồng Nhung",
+              birthday: "1989-05-23T17:00:00.000Z",
+              dataHealth: {
+                blood: "A",
+                diseaseTreatment: "Không",
+                diseaseCured: "Không",
+              },
+              attributes: {
+                Age: 30,
+                Sex: "Female",
+                Relationship: "Con",
+              },
+              children: [
+                {
+                  id: "test-id-70",
+                  name: "Nguyễn Hoàng Mẫn",
+                  birthday: "1990-09-04T17:00:00.000Z",
+                  dataHealth: {
+                    blood: "O",
+                  },
+                  attributes: {
+                    Age: 32,
+                    Sex: "Male",
+                    Relationship: "Chồng",
+                  },
+                },
+                {
+                  id: "test-id-74",
+                  name: "Nguyễn Hoàng Lý",
+                  birthday: "2015-05-12T17:00:00.000Z",
+                  dataHealth: {
+                    blood: "A",
+                    diseaseTreatment: "Viêm Gan B",
+                    diseaseCured: "Không",
+                  },
+                  attributes: {
+                    Age: 7,
+                    Sex: "Male",
+                    Relationship: "Con",
+                  },
+                  children: [],
+                },
+                {
+                  id: "test-id-80",
+                  name: "Nguyễn Hoàng Liên",
+                  birthday: "2015-05-12T17:00:00.000Z",
+                  dataHealth: {
+                    blood: "A",
+                    diseaseTreatment: "Không",
+                    diseaseCured: "Không",
+                  },
+                  attributes: {
+                    Age: 7,
+                    Sex: "Male",
+                    Relationship: "Con",
+                  },
+                  children: [],
+                },
+                {
+                  id: "test-id-86",
+                  name: "Nguyễn Thị Hồng Na",
+                  birthday: "2019-05-28T17:00:00.000Z",
+                  dataHealth: {
+                    blood: "A",
+                    diseaseTreatment: "Không",
+                    diseaseCured: "Không",
+                  },
+                  attributes: {
+                    Age: 3,
+                    Sex: "Female",
+                    Relationship: "Con",
+                  },
+                  children: [],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  },
 ];
 
 const treeFamilySlice = createSlice({
