@@ -38,7 +38,7 @@ function HomePage() {
     },
     {
       avatar:
-        "https://hongkongstudio.com.vn/wp-content/uploads/chup-anh-gia-dinh-theo-moc-thoi-gian.jpg",
+        "https://alohababy.vn/upload/images/nguyen-tac-chup-anh-gia-dinh-khien-ai-len-hinh-cung-deu-noi-bat-683x1024.png",
       title: "Gia Phả Họ Trần",
       numberhumans: "17",
       address:
